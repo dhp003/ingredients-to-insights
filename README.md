@@ -114,9 +114,9 @@ Note: Scroll right for more columns
 
 ### Univariate Analysis 
 
-**Distribution of number of steps of recipes**
+**Distribution of Number of Steps of Recipes**
 
-This plot displays the distribution of the number of steps required in recipes.
+This plot displays the distribution of the number of steps required in recipes. 
 
 <iframe
   src="assets/univariate_1.html"
@@ -124,5 +124,90 @@ This plot displays the distribution of the number of steps required in recipes.
   height="600"
   frameborder="0"
 ></iframe>
+
+From the plot, we can see that most recipes have a moderate number of steps, with a peak around 6-10 steps. This indicates that the majority of recipes are not overly complex in terms of the number of steps required.
+
+
+**Distribution of Average Rating**
+
+This plot shows the distribution of average ratings for recipes.
+
+<iframe
+  src="assets/univariate_2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The distribution is skewed towards higher ratings, indicating that most recipes receive favorable reviews from users. The peak around the higher end suggests that users are generally satisfied with the recipes they try.
+
+
+### Bivariate Analysis 
+
+**Relationship between Number of Steps and Average Rating**
+
+This line plot visualizes the relationship between the number of steps in a recipe and its average rating.
+
+<iframe
+  src="assets/bivariate_1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+**Relationship between Minutes to Prepare a Recipe and Average Rating**
+
+This plot visualizes the relationship between minutes to prepare a recipe and its average rating. 
+
+<iframe
+  src="assets/bivariate_2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+
+### Useful Aggregates 
+
+This pivot table provides a statistical summary of the relationship between the number of steps in a recipe and its ratings. The table is grouped by the number of steps (n_steps) and includes three key metrics for each group:
+
+	1. Average Rating: The mean rating of recipes that have a specific number of steps. This value helps identify whether recipes with more steps tend to receive higher or lower ratings on average.For example, if recipes with more steps consistently have higher average ratings, it might indicate that users appreciate the detailed instructions. Conversely, if they have lower ratings, it might suggest that users find complex recipes frustrating or difficult to follow.
+
+	2. Rating Standard Deviation: The standard deviation of the ratings for recipes with a specific number of steps. This metric indicates the variability or dispersion of the ratings within each group. A higher standard deviation means there is more variation in the ratings, while a lower standard deviation indicates that the ratings are more consistent.
+
+	3. Recipe Count: The number of recipes that have a specific number of steps. This count shows how many recipes fall into each group, providing context for the average rating and standard deviation values.
+
+
+| `n_steps`  | (mean, `average_rating`)   | (std, `average_rating`)  | ('count', 'prop_sugar') 
+| ------:    | -------------------------: | -----------------------: | --------------------: |
+|  1         |                4.65        |                0.49      |             2657      |            
+|  2         |                4.67        |                 0.48     |                  7557 |              
+|  3 				 |               4.66         |                  0.48    |                 11583 |              
+|  ... 	 	   |               ...          |                  ...     |                   ... |               
+|  93 			 |               5.00.        |                 0.0      |                    4  |              
+|  98				 |               5.00         |                      0.0 |                     1 |               
+|  100		   |               0.132994     |               0.0        |                     2 |     
+
+
+Overall, this pivot table allows us to analyze and visualize how the complexity of recipes, in terms of the number of steps, correlates with user ratings, offering insights into user preferences and potential areas for improving recipe instructions.
+
+<iframe
+  src="assets/pivot_table_graph.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+
+## Assessment of Missingness 
+
+
+
+## Hypothesis Testing 
+
+
+
+
+
 
 
