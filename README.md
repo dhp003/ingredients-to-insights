@@ -155,17 +155,6 @@ This line plot visualizes the relationship between the number of steps in a reci
   frameborder="0"
 ></iframe>
 
-**Relationship between Minutes to Prepare a Recipe and Average Rating**
-
-This plot visualizes the relationship between minutes to prepare a recipe and its average rating. 
-
-<iframe
-  src="assets/bivariate_2.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
-
 
 ### Useful Aggregates 
 
@@ -192,7 +181,7 @@ This pivot table provides a statistical summary of the relationship between the 
 Overall, this pivot table allows us to analyze and visualize how the complexity of recipes, in terms of the number of steps, correlates with user ratings, offering insights into user preferences and potential areas for improving recipe instructions.
 
 <iframe
-  src="assets/pivot_table_graph.html"
+  src="assets/pivot_table_graph_1.html"
   width="800"
   height="600"
   frameborder="0"
