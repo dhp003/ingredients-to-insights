@@ -167,9 +167,9 @@ This pivot table provides a statistical summary of the relationship between the 
 
   1. Average Rating: The mean rating of recipes that have a specific number of steps. This value helps identify whether recipes with more steps tend to receive higher or lower ratings on average. For example, if recipes with more steps consistently have higher average ratings, it might indicate that users appreciate the detailed instructions. Conversely, if they have lower ratings, it might suggest that users find complex recipes frustrating or difficult to follow.
 
-	2. Rating Standard Deviation: The standard deviation of the ratings for recipes with a specific number of steps. This metric indicates the variability or dispersion of the ratings within each group. A higher standard deviation means there is more variation in the ratings, while a lower standard deviation indicates that the ratings are more consistent.
+  2. Rating Standard Deviation: The standard deviation of the ratings for recipes with a specific number of steps. This metric indicates the variability or dispersion of the ratings within each group. A higher standard deviation means there is more variation in the ratings, while a lower standard deviation indicates that the ratings are more consistent.
 
-	3. Recipe Count: The number of recipes that have a specific number of steps. This count shows how many recipes fall into each group, providing context for the average rating and standard deviation values.
+  3. Recipe Count: The number of recipes that have a specific number of steps. This count shows how many recipes fall into each group, providing context for the average rating and standard deviation values.
 
 
 | `n_steps`  | (mean, `average_rating`)   | (std, `average_rating`)  | ('count', 'prop_sugar') 
@@ -192,7 +192,6 @@ Overall, this pivot table allows us to analyze and visualize how the complexity 
   frameborder="0"
 ></iframe>
 
-
 ## Assessment of Missingness 
 
 Assessing the missingness in the dataset involves understanding whether the missing values are Missing Completely at Random (MCAR), Missing at Random (MAR), or Not Missing at Random (NMAR). In our dataset, we have most missing values in the `average_rating` and `description` columns, and it's likely that these values are NMAR.
@@ -202,7 +201,6 @@ The missingness in the `average_rating` column could be because users chose not 
 To better understand and potentially explain this missingness (thereby making it MAR), we might want to obtain additional data such as:
 
 **User Engagement Metrics:** Information on how many users viewed but did not rate the recipe.
-
 
 ### Interpretation of Missingness Permutation Tests
 
@@ -267,7 +265,6 @@ To understand the relationship between the missingness in the `average_rating` c
   height="600"
   frameborder="0"
 ></iframe>
-
 
 ## Hypothesis Testing 
 
@@ -362,7 +359,6 @@ We are tackling a regression problem aiming to predict the average rating of a r
 
 **Evaluation Metric:**
 We will use the Mean Absolute Error (MAE) as our evaluation metric. MAE measures the average absolute difference between the predicted ratings and the actual ratings. We chose MAE over other suitable metrics such as Mean Squared Error (MSE) because MAE is more interpretable and less sensitive to outliers. Since our prediction problem is focused on estimating the average rating accurately, MAE provides a straightforward measure of prediction error that aligns with our goal.
-
 
 ## Baseline Model 
 
@@ -500,6 +496,3 @@ Based on our analysis, we found no compelling evidence to reject the null hypoth
   height="600"
   frameborder="0"
 ></iframe>
-
-
-
