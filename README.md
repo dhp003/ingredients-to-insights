@@ -305,8 +305,8 @@ P-value: 0.427
 
 <iframe
   src="assets/hyp_1.html"
-  width="800"
-  height="600"
+  width="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
@@ -344,8 +344,8 @@ P-value: 0.0
 
 <iframe
   src="assets/hyp_2.html"
-  width="800"
-  height="600"
+  width="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
