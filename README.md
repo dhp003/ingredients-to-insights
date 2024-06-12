@@ -4,9 +4,11 @@ Welcome to **Ingredients to Insights:** 🍝 This is a detailed data science pro
 
 By Dhanvi Patel
 
+Checkout my [baking page!](https://www.instagram.com/dhanvibakes?igsh=MmVlMjlkMTBhMg%3D%3D&utm_source=qr) 🍪 
+
 ## Introduction
 
-Cooking is a hobby for a lot of people. Some people, especially avid bakers like myself, enjoy detailed recipes and the delicious dishes they result in. For others, cooking is a mode of sustenance. They prefer simple recipes with less complexity. Through this project, I wanted to analyze the relationship between the number of steps in a recipe and its average rating. Do recipes with more steps receive higher ratings due to readers feeling biased by the effort they've invested in making them? Or do they have lower ratings resulting from disappointment from its complexity?
+Cooking is a hobby for a lot of people. Some people, especially avid bakers like myself, enjoy detailed recipes and the delicious dishes they result in. For others, cooking is a mode of sustenance. They prefer simple recipes with less complexity. Through this project, I wanted to analyze the relationship between the number of steps in a recipe and its average rating. Do recipes with more steps receive higher ratings due to readers feeling biased by the effort they've invested in making them? Or do they have lower ratings resulting from disappointment caused by its complexity?
 
 The primary relationship we are focusing on is:  
 
@@ -54,7 +56,7 @@ To optimize our dataset analysis, we performed the following data cleaning steps
 
 1. Left merge the recipes and interactions datasets together on `id` and `recipe_id` respectively 
 
-	- This step matches unique recipes to ratings and reviews 
+	- This step matches unique recipes to its ratings 
 
 
 2. Fill all ratings of 0 with np.nan
@@ -163,7 +165,7 @@ From the graph, we notice that towards the extreme spectrum of number of steps, 
 
 This pivot table provides a statistical summary of the relationship between the number of steps in a recipe and its ratings. The table is grouped by the number of steps (n_steps) and includes three key metrics for each group:
 
-	1. Average Rating: The mean rating of recipes that have a specific number of steps. This value helps identify whether recipes with more steps tend to receive higher or lower ratings on average. For example, if recipes with more steps consistently have higher average ratings, it might indicate that users appreciate the detailed instructions. Conversely, if they have lower ratings, it might suggest that users find complex recipes frustrating or difficult to follow.
+  1. Average Rating: The mean rating of recipes that have a specific number of steps. This value helps identify whether recipes with more steps tend to receive higher or lower ratings on average. For example, if recipes with more steps consistently have higher average ratings, it might indicate that users appreciate the detailed instructions. Conversely, if they have lower ratings, it might suggest that users find complex recipes frustrating or difficult to follow.
 
 	2. Rating Standard Deviation: The standard deviation of the ratings for recipes with a specific number of steps. This metric indicates the variability or dispersion of the ratings within each group. A higher standard deviation means there is more variation in the ratings, while a lower standard deviation indicates that the ratings are more consistent.
 
@@ -206,7 +208,7 @@ To better understand and potentially explain this missingness (thereby making it
 
 To understand the relationship between the missingness in the `average_rating` column and other columns, we conducted permutation tests. These tests help determine if the missingness in `average_rating` is dependent on other variables in our dataset, specifically `description` and `n_steps`.
 
-#### Test 1:** Dependency of Missing `average_rating` on `description`
+#### Test 1: Dependency of Missing `average_rating` on `description`
 
 **Null Hypothesis:** The missingness of `average_rating` does not depend on the missingness of `description`.
 
@@ -237,7 +239,7 @@ To understand the relationship between the missingness in the `average_rating` c
   frameborder="0"
 ></iframe>
 
-#### Test 2:**  Dependency of Missing `average_rating` on `n_steps`
+#### Test 2:  Dependency of Missing `average_rating` on `n_steps`
 
 **Null Hypothesis:** The missingness of `average_rating` does not depend on the number of steps (`n_steps`).
 
@@ -294,7 +296,7 @@ These hypotheses are formulated based on the research question, which aims to de
 
 **Results of Test 1:**
 
-Mean Difference in Average Ratings (Observed): 0.001641837343935748
+Mean Difference in Average Ratings (Observed): 0.00164
 P-value: 0.427
 
 **Conclusion:** Fail to reject the null hypothesis (H0). There is no sufficient evidence to conclude that there is a difference in the average ratings between recipes with more than 10 steps and those with 10 or fewer steps.
@@ -308,12 +310,13 @@ P-value: 0.427
   frameborder="0"
 ></iframe>
 
-
 #### Test 2: 
 
-**Null Hypothesis (H0):** There is no difference in the average ratings between recipes with a high number of ingredients (greater than the average) and those with a low number of ingredients (lower than the average)
+**Null Hypothesis (H0):** There is no difference in the average ratings between recipes with a high^ number of ingredients (greater than the average) and those with a low^ number of ingredients (lower than the average)
 
-**Alternative Hypothesis (H1):** There is a difference in the average ratings between recipes with a high number of ingredients and those with a low number of ingredients.
+**Alternative Hypothesis (H1):** There is a difference in the average ratings between recipes with a high^ number of ingredients and those with a low^ number of ingredients.
+
+^Here high or low is relative to the median value of number of steps 
 
 **Test Statistic:** Mean difference in average ratings between the two groups.
 
@@ -345,7 +348,6 @@ P-value: 0.0
   height="600"
   frameborder="0"
 ></iframe>
-
 
 ## Framing a prediction problem 
 
@@ -447,6 +449,8 @@ The final model's performance represents an improvement over the baseline model'
 
 The **visualization** of prediction errors highlights the distribution and spread of errors, providing insights into the model's predictive performance across different instances.
 
+This is an interactive graph! Zoom on the values to get a detailed look. 
+
 <iframe
   src="assets/error_distribution.html"
   width="800"
@@ -454,12 +458,12 @@ The **visualization** of prediction errors highlights the distribution and sprea
   frameborder="0"
 ></iframe>
 
-
 ## Fairness Analysis 
 
 In this section, we conducted a fairness analysis to assess whether the performance of our final predictive model varies across different time periods, specifically focusing on recipes before and after the year 2010. The goal of the analysis was to investigate potential disparities in model predictions between these two groups and determine if any observed differences are statistically significant.
 
 **Group X:** Recipes before the year 2010 
+
 **Group Y:** Recipes from the year 2010 onward 
 
 We will use the **Mean Absolute Error (MAE)** as our evaluation metric since we are dealing with a regression problem.
@@ -480,7 +484,8 @@ We will use the **Mean Absolute Error (MAE)** as our evaluation metric since we 
 
 **Results**
 
-**p-value:** The resulting p-value from our permutation test was **0.708**, indicating that the observed difference in MAE is not statistically significant at the 0.05 significance level.
+**P-value:** The resulting p-value from our permutation test was **0.708**, indicating that the observed difference in MAE is not statistically significant at the 0.05 significance level.
+
 **Observed Difference in MAE:** We observed a slight difference in MAE between recipes from the two time periods, with a value of **-0.00168**
 
 **Conclusion:**
